@@ -235,7 +235,7 @@ const deleteLikedMovies = asyncHandler(async (req, res) => {
         if (user) {
             user.likedMovies = [];
             await user.save();
-            res.json({ messaging: "All liked movies deleted successfully" });
+            res.json({ messaging: "Your favorites movies deleted successfully" });
         }
         // else send error message
         else {

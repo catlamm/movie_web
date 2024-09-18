@@ -2,8 +2,9 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import {connectDB} from "./config/db.js";
-import userRouter from "./Routes/UserRouter.js";
 import { errorHandler } from './middlewares/errorMiddleware.js';
+import userRouter from "./Routes/UserRouter.js";
+import moviesRouter from "./Routes/MoviesRouter.js";
 
 dotenv.config();
 
@@ -22,6 +23,7 @@ app.get('/', (req, res) => {
 })
 //other route
 app.use("/api/users", userRouter);
+app.use("/api/movies", moviesRouter)
 
 // error handling middleware
 app.use(errorHandler);
